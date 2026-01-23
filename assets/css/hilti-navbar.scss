@@ -1,0 +1,23 @@
+
+.navbar-nav {
+    gap: var(--bs-gutter-x)
+}
+
+.navbar-hilti  {
+    background-color: #fff;
+    box-shadow: 0 -.625rem .625rem .625rem #00000026;
+}
+
+.navbar-nav .nav-link {
+    color: var(--brand-dark);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active{
+    color: var(--brand-red);
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    box-shadow: 0 0 .625rem #00000026;
+}

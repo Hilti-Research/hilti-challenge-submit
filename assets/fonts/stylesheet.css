@@ -1,16 +1,21 @@
-@font-face {
-    font-family: 'Hilti';
-    src: url('Hilti-Roman.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'Hilti';
-    src: url('Hilti-Bold.woff2') format('woff2');
+    font-display: swap;
     font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+    src: url('HiltiBold-latin.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Hilti';
+    font-display: swap;
+    font-weight: normal;
+    src: url('HiltiRoman-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'iconfont';
+    font-display: swap;
+    font-weight: normal;
+    src: url('iconfont.woff2') format('woff2');
+}

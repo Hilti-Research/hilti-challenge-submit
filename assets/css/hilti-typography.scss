@@ -1,81 +1,122 @@
-@use 'sass:map';
 
 html,
 body {
-  background: #fff;
-  font-size: 18px;
+    background: #fff;
+    font-size: 15px;
+
+    font-family: "Hilti", Arial, Helvetica, sans-serif;
 }
 
-@media (max-width: map.get($container-max-widths, 'xl')) {
-  html,
-  body {
-    font-size: 16px;
-  }
+h1, h2, h3 {
+    margin-bottom: var(--spacer-sm);
 }
 
-@media (max-width: map.get($container-max-widths, 'md')) {
-  html,
-  body {
-    font-size: 14px;
-  }
-}
+h1 {
+    text-transform: uppercase;
 
-h1,
-.h1 {
-  color: $brand-red;
-  font-size: 2rem;
-  text-transform: uppercase;
+    color: var(--brand-red);
+    font-size: var(--size-h1);
+    font-weight: normal;
+    line-height: var(--size-h1);
 }
 
 h2 {
-  color: $brand-red;
-  font-size: 1.12rem;
-  margin-top: 2em;
+    text-transform: uppercase;
+
+    color: var(--brand-red);
+    font-size: var(--size-h2);
+    line-height: var(--size-h2);
 }
 
-.hero-teaser,
-.teaser {
-  color: $brand-dark-red;
-  font-size: 1.12rem;
+.subtitle {
+    text-transform: none;
+
+    color: var(--brand-dark-red);
+    font-size: var(--size-h3);
+    line-height: var(--size-h3);
 }
 
-h3,
-p,
+h3, .nav-item {
+    color: var(--brand-dark);
+    font-weight: bold;
+    font-size: var(--size-h3);
+    line-height: var(--size-h2);
+}
+
+.section-spacer {
+    margin-top: calc(3 * var(--size-section));
+    margin-bottom: var(--size-section);
+}
+
+.section-title {
+    text-transform: uppercase;
+
+    color: var(--brand-red);
+    font-size: var(--size-section);
+    line-height: var(--size-section);
+}
+
+p, .dropdown-item, ul li {
+    color: var(--brand-dark);
+    font-size: var(--size-p);
+    line-height: var(--size-h2);
+}
+
+.text-secondary {
+    font-size: var(--size-p-secondary);
+}
+
+p {
+    margin-bottom: var(--size-h2);
+}
+
 a {
-  color: $brand-dark;
+    font-weight: bold;
+    color: var(--brand-dark);
+    text-decoration: none;
 }
 
-a {
-  font-weight: bold;
-  text-decoration: none;
+.text-secondary a {
+    font-weight: normal;
+    text-decoration: underline;
 }
 
 a:hover {
-  color: $brand-red;
+    color: var(--brand-red);
 }
 
 .arrow::after {
-  color: $brand-red;
-  content: '>';
-  display: inline-block;
-  font-size: 0.8em;
-  font-weight: 200;
-  margin-left: 0.5em;
-  transition: all 0.5s;
+    position: relative;
+    top: 0.1em;
+    color: var(--brand-red);
+    font-family: iconfont;
+    content: "";
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 200;
+    margin-left: 0.5em;
+    transition: all 0.5s;
 }
 
 .arrow:hover::after {
-  margin-left: 1em;
+    margin-left: 1em;
 }
 
 pre {
-  background-color: #fff;
-  display: inline-block;
-  min-width: 66%;
-  padding: 1em;
+    background-color: var(--brand-lighter);
+    padding: var(--spacer-sm);
 }
 
-code,
-pre code {
-  color: $brand-dark-red;
+.table > :not(caption) > * > * {
+    color: var(--brand-dark);
+    font-size: var(--size-p);
+    line-height: var(--size-h2);
+}
+
+.table > :not(caption) > * > th {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--size-p-secondary);
+    line-height: var(--size-p);
+    padding: .3rem .5rem;
 }

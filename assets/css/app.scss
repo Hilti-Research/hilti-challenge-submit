@@ -1,6 +1,3 @@
-$border-radius: 0;
-$shadow: 2px 4px 6px 0 rgb(0 0 0 / 16%);
-
 $brand-red: #d2051e;
 $brand-dark-red: #671a3d;
 $brand-dark: #524f53;
@@ -20,112 +17,42 @@ $green: #318531;
 $cyan: #256464;
 
 $font-family-sans-serif: 'Hilti', Arial, Helvetica, sans-serif;
-
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1300px) !default;
-
 @import '~bootstrap/scss/bootstrap';
+
+:root {
+    --brand-red: #d2051e;
+    --brand-dark-red: #671a3d;
+    --brand-dark: #524f53;
+    --brand-light: #f1eee8;
+    --brand-lighter: #F7F5F2;
+
+    --max-width-xl: 1140px;
+    --max-width-md: 720px;
+
+    --size-section: 3.125rem;
+    --size-h1: 2.0625rem;
+    --size-h2: 1.375rem;
+    --size-h3: 1.125rem;
+    --size-p: .9375rem;
+    --size-p-secondary: .8125rem;
+
+    --spacer-sm: .6875rem;
+}
+$shadow: 2px 4px 6px 0 rgb(0 0 0 / 16%);
+
 @import '../fonts/stylesheet.css';
-@import 'hilti-typography';
-@import 'hilti-header';
-@import 'hilti-hero';
+@import 'layout';
 @import 'pyro';
 @import 'utils';
+@import 'hilti-typography';
+@import 'hilti-navbar';
+@import 'hilti-core';
 
-html,
-body {
-  height: 100%;
-}
-
-.alert {
-  font-size: 0.8em;
-}
-
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.page-content {
-  flex: 1;
-}
-
-//center layout for messages & easy forms
-.center-wrapper {
-  align-items: center;
-  display: flex;
-  min-height: 100%;
-}
-
-.center-content {
-  margin: 40px auto;
-  max-width: 540px;
-  width: 100%;
-}
-
-.center-content.wide {
-  max-width: 700px;
-}
-
-.center-content-primary {
-  background: $white;
-  padding: 2rem 2rem 1rem;
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.center-content-secondary {
-  padding: 1rem 2rem;
-}
-
-.content {
-  margin-top: 1em;
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.tile {
-  background-color: rgb(125 117 101 / 5%);
-  box-shadow: $shadow;
-  padding: 1em;
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.admin-wrapper {
-  padding: 1em;
-}
 
 // stylelint-disable-next-line selector-no-qualifying-type
 label.required::after {
   color: $red;
   content: '* ';
-}
-
-.minimal-width {
-  white-space: nowrap;
-  width: 1%;
-}
-
-.text-sm {
-  font-size: 0.8em;
-}
-
-.inline-icon {
-  display: inline-block;
-  font-size: 0.8em;
-  padding: 0.2em;
-  vertical-align: center;
-}
-
-.mw-text {
-  max-width: 47em;
 }
 
 .col-form-label {

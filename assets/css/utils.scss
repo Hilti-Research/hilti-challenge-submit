@@ -23,3 +23,23 @@
   display: inline-block;
   width: 25em;
 }
+
+.minimal-width {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.text-sm {
+    font-size: 0.8em;
+}
+
+.inline-icon {
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 0.2em;
+    vertical-align: center;
+}
+
+.mw-text {
+    max-width: 47em;
+}
