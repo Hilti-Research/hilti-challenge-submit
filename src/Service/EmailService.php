@@ -71,7 +71,7 @@ readonly class EmailService implements EmailServiceInterface
 
         $link = $this->router->generate('submission_mine', ['_switch_user' => $user->getEmail()]);
         $entity = Email::create(EmailType::SUBMISSION_EVALUATED_ADMIN_NOTIFICATION, $user, $link, $body);
-        $subject = $this->translator->trans('submission_evaluated_admin_notification.subject', ['%team%' => $user->getTeamName(), '%score%' => $score], 'email');
+        $subject = $this->translator->trans('submission_evaluated_admin_notification.subject', ['%team%' => $user->getTeamName(), '%score%' => round($score ?? 0, 2)], 'email');
 
         $message = $this->createTemplatedEmail()
             ->subject($subject)
