@@ -9,6 +9,8 @@ mine:
   create_first_submission: 'Add first submission'
   evaluation_error: 'Error'
   outdated_score: 'outdated'
+  warning:
+    no_report: 'Your best submission does not include a report. If you want to be considered for the ranking, please include a report before the deadline.'
 
 new:
   title: 'Add new submission'

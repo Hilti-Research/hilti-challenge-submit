@@ -1,0 +1,25 @@
+<p>
+    For each run, we expect predictions with <b>at least 99% coverage</b> of the true sequence. Otherwise, the score
+    is automatically set to 0.
+</p>
+
+<p class="mb-0">
+    Please provide your predictions in the following <b>csv</b> format:
+</p>
+<pre class="bg-white"><code class="text-code"># counter, sec, nsec, x, y, z, qx, qy, qz, qw
+0, 1, 502506000, 36.72830695914945, 20.672393960017057, 1.2633793685045738, -0.23032052468412972, 0.6809105400648728, 0.6851636151782285, -0.11774596712283085</code></pre>
+
+<p class="mb-0">
+    The name for each file must be:
+</p>
+<pre class="mb-2 bg-white"><code class="text-code">floor_X_YYYY-MM-DD_run_Z.csv</code></pre>
+
+<p class="mb-0">
+    where:
+</p>
+
+<ul>
+    <li><code>X</code> is the floor identifier, e.g. <code>1</code>, <code>2</code> or <code>EG</code></li>
+    <li><code>YYYY-MM-DD</code> are the year, month and day of the run respectively, e.g. <code>2026-01-01</code></li>
+    <li><code>Z</code> is the run, e.g. <code>2</code> or <code>12</code></li>
+</ul>
