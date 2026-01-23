@@ -1,8 +1,6 @@
 @font-face {
     font-family: 'Hilti';
-    src: url('Hilti-Roman.woff2') format('woff2'),
-        url('Hilti-Roman.woff') format('woff'),
-        url('Hilti-Roman.ttf') format('truetype');
+    src: url('Hilti-Roman.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -10,9 +8,7 @@
 
 @font-face {
     font-family: 'Hilti';
-    src: url('Hilti-Bold.woff2') format('woff2'),
-        url('Hilti-Bold.woff') format('woff'),
-        url('Hilti-Bold.ttf') format('truetype');
+    src: url('Hilti-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
