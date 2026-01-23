@@ -84,7 +84,7 @@ class LeaderboardController extends AbstractController
         }
 
         $submissionDirectory = $pathService->getSubmissionDirectory($submission);
-        $path = $submissionDirectory . '/' . $submission->getEvaluationReportFilename();
+        $path = $submissionDirectory . '/' . $submission->getEvaluationFolder() . "/" . $submission->getEvaluationReportFilename();
 
         $team = $pathService->getUserDirectory($submission->getUser());
         return $this->file($path, $team . "_evaluation." . pathinfo($submission->getEvaluationReportFilename(), PATHINFO_EXTENSION));

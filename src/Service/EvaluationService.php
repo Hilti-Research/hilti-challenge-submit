@@ -147,7 +147,7 @@ readonly class EvaluationService implements EvaluationServiceInterface
             }
         }
 
-        if (!is_float($lastNoneEmptyCellInColumnM)) {
+        if (!$lastNoneEmptyCellInColumnM) {
             return null;
         }
 

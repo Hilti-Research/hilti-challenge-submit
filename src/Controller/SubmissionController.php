@@ -169,7 +169,7 @@ class SubmissionController extends AbstractController
         }
 
         $submissionDirectory = $pathService->getSubmissionDirectory($submission);
-        $path = $submissionDirectory . '/' . $submission->getEvaluationReportFilename();
+        $path = $submissionDirectory . '/' . $submission->getEvaluationFolder() . "/" . $submission->getEvaluationReportFilename();
 
         return $this->file($path, "evaluation_" . $submission->getIteration() . "." . pathinfo($submission->getEvaluationReportFilename(), PATHINFO_EXTENSION));
     }
