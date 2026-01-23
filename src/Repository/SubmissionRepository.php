@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Submission;
 use App\Enum\ChallengeType;
+use App\Enum\EvaluationStatus;
 use App\Enum\EvaluationType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -52,5 +53,23 @@ class SubmissionRepository extends ServiceEntityRepository
         }
 
         return $totalsPerEvaluation;
+    }
+
+
+    /**
+     * @param ChallengeType $challengeType
+     * @param int $maxResults
+     * @return array<Submission>
+     */
+    public function findLastNotFailedSubmissions(ChallengeType $challengeType, int $maxResults): array
+    {
+        return $this->createQueryBuilder('s')
+            ->select('s')
+            ->andWhere('s.evaluationStatus != :status')
+            ->setParameter(':status', EvaluationStatus::ERROR)
+            ->addOrderBy('s.createdAt', 'DESC')
+            ->setMaxResults($maxResults)
+            ->getQuery()
+            ->getResult();
     }
 }

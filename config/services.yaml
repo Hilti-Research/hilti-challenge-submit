@@ -19,6 +19,7 @@ services:
             $publicDir: '%kernel.project_dir%/public'
             $submissionsDirectory: '%kernel.project_dir%/var/persistent/submissions'
             $currentChallengeDeadline: '%env(CURRENT_CHALLENGE_DEADLINE)%'
+            $currentChallengeSubmissionsPerDay: '%env(CURRENT_CHALLENGE_SUBMISSIONS_PER_DAY)%'
             $leaderboardAuthentication: '%env(LEADERBOARD_AUTHENTICATION)%'
             $awsRegion: '%env(AWS_REGION)%'
             $awsBucketName: '%env(AWS_BUCKET_NAME)%'
