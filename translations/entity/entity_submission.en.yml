@@ -1,0 +1,16 @@
+entity:
+  name: 'Submission'
+
+Iteration: "Iteration"
+Description: "Description"
+Report file: "Report (.pdf)"
+Solution file: "Solution (.zip)"
+Score: "Score"
+
+Challenge type: Challenge
+Evaluation type: Challenge
+
+help:
+  description: "Describe the submissions (this will remain private)."
+  report_file: "Describe your approach. To be considered for the leaderboard, include a report with the best-scoring submission (before the deadline)."
+  solution_file: "Your solution files. View the submission requirements for the expected structure."

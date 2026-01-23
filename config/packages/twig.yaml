@@ -1,0 +1,13 @@
+twig:
+    file_name_pattern: '*.twig'
+    form_themes: ['bootstrap_5_layout.html.twig', 'form/fields.html.twig']
+    paths:
+        '%kernel.project_dir%/public/build': build
+        '%kernel.project_dir%/public/build/images': images
+    globals:
+        env_support_email: '%env(SUPPORT_EMAIL)%'
+        env_current_challenge_deadline: '%env(CURRENT_CHALLENGE_DEADLINE_TEXT)%'
+
+when@test:
+    twig:
+        strict_variables: true

@@ -1,0 +1,18 @@
+{% extends "_form_content.html.twig" %}
+
+{% block title %}{{ "remove.title"|trans }}{% endblock %}
+{% block description %}{{ "remove.description"|trans }}{% endblock %}
+
+{% trans_default_domain "user" %}
+
+{% block form_content %}
+    <div class="form-wrapper">
+        {{ form_start(form) }}
+
+        {{ form_row(form.confirmConsequences) }}
+
+        {{ form_widget(form.submit) }}
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

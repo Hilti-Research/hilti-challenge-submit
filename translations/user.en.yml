@@ -1,0 +1,24 @@
+index:
+  title: Submissions
+  description: Your submissions
+
+setup:
+  title: 'Setup profile'
+  description: 'Choose a team name and disclose its affiliation. Further, tell us how you would like to be contacted.'
+  submit: 'Save'
+  success:
+    stored: 'Saved. You can now add your first submission!'
+
+edit:
+  title: 'Edit profile'
+  description: 'Change team name, contact person or affiliation.'
+  submit: 'Save'
+  success:
+    saved: 'Saved changes.'
+
+remove:
+  title: 'Remove account'
+  description: 'Remove account and any associated data.'
+  submit: 'Erase irretrievably'
+  success:
+    removed: 'We have removed your account and your submissions.'

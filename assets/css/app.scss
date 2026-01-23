@@ -1,0 +1,133 @@
+$border-radius: 0;
+$shadow: 2px 4px 6px 0 rgb(0 0 0 / 16%);
+
+$brand-red: #d2051e;
+$brand-dark-red: #671a3d;
+$brand-dark: #524f53;
+
+$alert-padding-y: 0.5rem;
+$alert-border-width: 0;
+$alert-margin-bottom: 0;
+
+$primary: $brand-red;
+
+// choose new colors relative to brand color
+$blue: #423372;
+$red: $brand-red;
+$orange: #a66d3d;
+$yellow: #a6943d;
+$green: #318531;
+$cyan: #256464;
+
+$font-family-sans-serif: 'Hilti', arial, helvetica, sans-serif;
+
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1300px) !default;
+
+@import '~bootstrap/scss/bootstrap';
+@import '../fonts/stylesheet.css';
+@import 'hilti-typography';
+@import 'hilti-header';
+@import 'hilti-hero';
+@import 'pyro';
+@import 'utils';
+
+html,
+body {
+  height: 100%;
+}
+
+.alert {
+  font-size: 0.8em;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-content {
+  flex: 1;
+}
+
+//center layout for messages & easy forms
+.center-wrapper {
+  align-items: center;
+  display: flex;
+  min-height: 100%;
+}
+
+.center-content {
+  margin: 40px auto;
+  max-width: 540px;
+  width: 100%;
+}
+
+.center-content.wide {
+  max-width: 700px;
+}
+
+.center-content-primary {
+  background: $white;
+  padding: 2rem 2rem 1rem;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.center-content-secondary {
+  padding: 1rem 2rem;
+}
+
+.content {
+  margin-top: 1em;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tile {
+  background-color: rgb(125 117 101 / 5%);
+  box-shadow: $shadow;
+  padding: 1em;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.admin-wrapper {
+  padding: 1em;
+}
+
+// stylelint-disable-next-line selector-no-qualifying-type
+label.required::after {
+  color: $red;
+  content: '* ';
+}
+
+.minimal-width {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.text-sm {
+  font-size: 0.8em;
+}
+
+.inline-icon {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0.2em;
+  vertical-align: center;
+}
+
+.mw-text {
+  max-width: 47em;
+}
+
+.col-form-label {
+  padding-top: 0; // to align with normal form elements
+}

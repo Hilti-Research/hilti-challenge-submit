@@ -1,0 +1,15 @@
+{% extends '_tile_content.html.twig' %}
+
+{% block title %}{{ "twig_bundle_exception.title"|trans }}{% endblock %}
+{% block description %}{{ "twig_bundle_exception.description"|trans({"%statusCode%": exception.statusCode, "%statusText%": exception.statusText}) }}{% endblock %}
+
+{% trans_default_domain "framework" %}
+
+{% block tile_content %}
+    <p>
+        {{ "twig_bundle_exception.help"|trans }}
+    </p>
+    <p>
+        <a class="btn btn-primary" href="{{ path("index") }}">{{ "twig_bundle_exception.continue"|trans() }}</a>
+    </p>
+{% endblock %}

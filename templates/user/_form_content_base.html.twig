@@ -1,0 +1,13 @@
+{% extends "_form_content.html.twig" %}
+
+{% form_theme form _self %}
+
+{% block form_content %}
+    {{ form_start(form) }}
+
+    {{ form_row(form.team) }}
+
+    {{ form_widget(form.submit) }}
+
+    {{ form_end(form) }}
+{% endblock %}

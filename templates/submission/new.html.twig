@@ -1,0 +1,12 @@
+{% extends "submission/_form_content_base.html.twig" %}
+
+{% block title %}{{ "new.title"|trans }}{% endblock %}
+{% block description %}{{ "new.description"|trans({"%iteration%": submission.iteration}) }}{% endblock %}
+
+{% trans_default_domain "submission" %}
+
+{% block post_tile_content %}
+    <div class="mb-5 mt-5">
+        {% include 'submission/how_to_submit.html.twig' %}
+    </div>
+{% endblock %}

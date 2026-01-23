@@ -1,0 +1,5 @@
+success: 'success'
+info: 'info'
+warning: 'warning'
+error: 'danger'
+fatal: 'danger'

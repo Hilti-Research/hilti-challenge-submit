@@ -1,0 +1,37 @@
+{% block set_password_widget %}
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.plainPassword) }}
+        </div>
+        <div class="col">
+            {{ form_row(form.repeatPlainPassword) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block team_widget %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.teamName) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.affiliation) }}
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.contactName) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.contactEmail) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.webpage) }}
+        </div>
+    </div>
+
+{% endblock %}

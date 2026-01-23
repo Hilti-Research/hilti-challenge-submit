@@ -1,0 +1,17 @@
+{% extends '_tile_content.html.twig' %}
+
+{% block title %}{{ 'mine.title'|trans }}{% endblock %}
+{% block description %}{{ 'mine.description'|trans }}{% endblock %}
+
+{% trans_default_domain "submission" %}
+
+{% block pre_tile_content %}
+    <p>
+        <a class="btn btn-primary" href="{{ path("submission_new") }}">
+            {{ "mine.create_first_submission"|trans }}
+        </a>
+    </p>
+{% endblock %}
+
+{% set hide_tile = true %}
+

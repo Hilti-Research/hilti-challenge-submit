@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        id="Hilti_Logo"
+        viewBox="0 -35.3 184 184"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+    <style
+            id="style195">.st0{fill:#d2051e}.st1{fill:#fff}
+    </style>
+    <g
+            id="Logo">
+        <path
+                id="Background"
+                class="st0"
+                d="M 0,-35.5 184,-35.5 184,148.7 0,148.7 Z"/>
+        <path
+                id="Hilti"
+                class="st1"
+                d="M 32.2,86.2 H 64.4 V 70.7 h 56.3 v 15.5 h 32.2 v -59 H 120.7 V 42.7 H 64.4 V 27.2 H 32.2 Z"/>
+    </g>
+</svg>

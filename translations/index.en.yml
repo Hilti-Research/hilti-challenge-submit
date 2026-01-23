@@ -1,0 +1,20 @@
+index:
+  title: 'Automatic Evaluation System'
+  description: 'Hilti SLAM Challenge: Automatic evaluation system'
+  teaser: 'for the Hilti SLAM Challenges'
+  help: 'Upload your SLAM results (see %format_requirements_links%) and receive a detailed accuracy report.'
+
+  deadline: 'Latest submission: %deadline%'
+  deadline_passed: 'Deadline passed.'
+
+  learn_more: 'Discover the challenge'
+
+  show_submission_info: 'How to submit'
+
+  leaderboard: 'Challenge %name%'
+  congratulations: 'Congratulations to the winners!'
+  vision_only: 'Vision-only submissions (no LIDAR)'
+  deadline_passed_help: 'You can still add new submissions, but these new submissions will not be considered for the ranking.'
+
+leaderboard:
+  undisclosed: 'Undisclosed'

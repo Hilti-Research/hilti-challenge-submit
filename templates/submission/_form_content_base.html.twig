@@ -1,0 +1,40 @@
+{% extends "_form_content.html.twig" %}
+
+{% form_theme form _self %}
+
+{% block form_content %}
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-2">
+                    {{ form_row(form.iteration) }}
+                </div>
+                <div class="col-md-10">
+                    {{ form_row(form.description) }}
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-8">
+                    {{ form_row(form.evaluationType) }}
+                </div>
+                <div class="col-md-12">
+                    {{ form_row(form.solutionFile) }}
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_row(form.reportFile) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{ form_widget(form.submit) }}
+
+    {{ form_end(form) }}
+{% endblock %}

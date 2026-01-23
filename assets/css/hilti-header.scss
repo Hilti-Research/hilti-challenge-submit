@@ -1,0 +1,19 @@
+.header {
+  margin-bottom: -3px;
+}
+
+.header::after {
+  background: linear-gradient(rgb(0 0 0 / 15%), transparent);
+  bottom: 0;
+  content: '';
+  height: 0.25em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+.header-gradient {
+  background-image: linear-gradient(to bottom, rgb(125 117 101 / 5%), rgb(125 117 101 / 0%));
+  height: 2em;
+}

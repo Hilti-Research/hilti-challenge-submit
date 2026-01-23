@@ -1,0 +1,23 @@
+$primary-color: #d2051e;
+$secondary-color: #244471;
+
+$body-background: #f3f3f3;
+$container-background: $body-background;
+
+$body-font-family: arial, verdana, sans-serif !default;
+
+@import '~foundation-emails/scss/foundation-emails';
+
+.logo {
+  height: 40px;
+  margin: 0 auto 20px;
+  max-width: 200px;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.secondary-content {
+  opacity: 0.6;
+}

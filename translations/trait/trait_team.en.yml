@@ -1,0 +1,14 @@
+Team name: Team Name
+Affiliation: Affiliation
+Contact name: Contact name
+Contact email: Contact email
+Webpage: Webpage
+Notes: Notes
+
+help:
+  team_name: The team name will be shown in the leaderboard.
+  affiliation: The institution or company the team is affiliated with (also public).
+  contact_name: We will not make your contact name or email public.
+
+trait:
+  name: "Team"

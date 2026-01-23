@@ -1,0 +1,12 @@
+/* TEAM */
+	Developer: Florian Moser
+	Github: @famoser
+	From: Zürich, Switzerland
+
+/* SITE */
+	Last big update: 2022-02
+	Language: English
+	Doctype: HTML5
+	IDE: PhpStorm, Symfony plugin, Notepad++, FileZilla
+	Technology: Apache, PHP, JavaScript, CSS, HTML
+	Libraries: Symfony, Bootstrap, FontAwesome

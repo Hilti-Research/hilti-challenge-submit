@@ -1,0 +1,44 @@
+{% extends '_base.html.twig' %}
+
+{% trans_default_domain "email" %}
+
+{% block title %}{{ "view_online.title"|trans }}{% endblock %}
+{% block description %}{{ "view_online.description"|trans }}{% endblock %}
+
+{% block body %}
+    <section class="center-wrapper">
+        <div class="center-content wide">
+            <img class="logo" src="{{ asset('build/images/logo.svg') }}" alt="Logo">
+
+            <div class="center-content-primary shadow">
+                {% apply inky_to_html %}
+                    {% if emailType == 1 %}
+                        {% set path = 'email/recover_confirm_content.twig' %}
+                    {% elseif emailType == 2 %}
+                        {% set path = 'email/submission_evaluated_content.twig' %}
+                    {% elseif emailType == 3 %}
+                        {% set path = 'email/submission_evaluated_notify_content.twig' %}
+                    {% endif %}
+                    <p>{{ block('message', path) }}</p>
+                    <spacer size="15"></spacer>
+                    <center>
+                        <button href="{{ absolute_url(link) }}">
+                            {{ block('link_text', path) }}
+                        </button>
+                    </center>
+                {% endapply %}
+            </div>
+            <div class="center-content-secondary">
+                <p class="text-center text-secondary">
+                    {% include "email/_email_meta_content.html.twig" %}
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('email') }}
+{% endblock %}

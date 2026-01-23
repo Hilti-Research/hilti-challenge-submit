@@ -1,0 +1,40 @@
+mine:
+  title: Submissions
+  description: Your submissions
+  waiting_score: 'waiting...'
+  submissions_public: 'Your latest submission with the highest score is included on the leaderboard.'
+  submissions_public_change: 'Go private'
+  submissions_private: 'Your latest submission with the highest score is included on the leaderboard. Your name is not disclosed.'
+  submissions_private_change: 'Go public.'
+  create_first_submission: 'Add first submission'
+  evaluation_error: 'Error'
+  outdated_score: 'outdated'
+
+new:
+  title: 'Add new submission'
+  description: 'Add your submission #%iteration%'
+  first_time_description: 'First submission'
+  submit: "Upload"
+  error:
+    report_file_invalid: 'The upload of the report failed.'
+    report_file_ending_invalid: 'The report must be a .pdf file.'
+    solution_file_invalid: 'The upload of the solution failed.'
+    solution_file_ending_invalid: 'The solution must be a .zip file.'
+    too_many_submissions: 'You need to wait until you can create another submissions.'
+  success:
+    submission_is_scored: 'Submission successful! Please wait until we have evaluated your solution. You will receive an email with your score.'
+  submission_requirements: 'Submission requirements'
+
+_messages:
+  error:
+    cannot_start_evaluation: 'Cannot start the evaluation. This is a server issue, please contact the support.'
+
+evaluate:
+  success:
+    started: 'The evaluation has been restarted.'
+
+reevaluate:
+  error:
+    submission_already_most_recent: 'Submission already reevaluated.'
+  success:
+    submission_is_reevaluated: 'Submission is reevaluated.'

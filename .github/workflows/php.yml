@@ -1,0 +1,57 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create folders of frontend
+      run: mkdir --parents public/build/images
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+
+    - name: Validate composer.json and composer.lock
+      run: |
+        composer validate --strict
+        composer audit
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-scripts
+
+    - name: Lint
+      run: |
+        ./vendor/bin/phpcs
+        php bin/console lint:yaml config --parse-tags
+        php bin/console lint:twig templates
+
+    - name: Test
+      run: |
+        php bin/console doctrine:migrations:migrate --no-interaction
+        php vendor/bin/phpunit
+

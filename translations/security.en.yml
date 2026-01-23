@@ -1,0 +1,55 @@
+login:
+  title: 'Login'
+  description: "Welcome back!"
+  submit: Login
+  forgot_passwort: 'Forgot your Password?'
+  new_here: 'New here?'
+  errors:
+    login_failed: 'Login failed.'
+    email_not_found: 'E-Mail not found.'
+    password_wrong: 'Password wrong.'
+    account_disabled: 'This Account is deactivated. Activate it using the link from the registration E-Mail, or by resetting your password.'
+
+register:
+  title: 'Register'
+  description: 'Create an account to submit your own solutions.'
+  submit: "Create account"
+  back_to_login: 'Back to Login.'
+  personal_data_usage_statement: 'Any personal data submitted to this webpage will only be used in relation to the Hilti SLAM Challenge.'
+  success:
+    welcome: 'Welcome! We are looking forward to your submission.'
+  error:
+    email_already_used: 'This E-Mail has already been used. Login or reset your password instead.'
+
+recover:
+  title: 'Reset password'
+  description: 'We will send you a recover link to your E-Mail.'
+  submit: 'Send recover link'
+  forgot_email: 'Forgot your E-Mail or other problems?'
+  remembered_login: 'Retry login?'
+  back_to_login: 'Back to Login.'
+  success:
+    email_sent: 'We have sent your a recover link to your E-Mail.'
+  error:
+    email_not_sent: 'E-Mail could not be sent. This is a technical error, please do contact the support.'
+    email_not_found: 'E-Mail was not found in the system.'
+
+recover_confirm:
+  title: 'Reset password'
+  description: 'Set your new password.'
+  submit: 'Set password'
+  success:
+    password_set: 'Welcome back! New password set successfully.'
+  error:
+    invalid_hash: 'Link is no longer valid. Each link may only be used once.'
+
+_messages:
+  error:
+    passwords_do_not_match: 'Passwords do not match.'
+    password_too_short: 'The password is too short. Please use at least 8 characters.'
+
+logout:
+  title: Logout
+
+impersonation:
+  exit: 'Stop impersonation'

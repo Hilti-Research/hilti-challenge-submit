@@ -1,0 +1,26 @@
+{% extends "_content.html.twig" %}
+
+{% block content %}
+    <div class="content">
+        <div class="pt-4 pb-4">
+            <h1>{{ block('title') }}</h1>
+            <p class="teaser">{{ block('description') }}</p>
+        </div>
+
+        {% block pre_tile_content %}
+
+        {% endblock %}
+
+        {% if hide_tile is not defined %}
+            <div class="tile">
+                {% block tile_content %}
+
+                {% endblock %}
+            </div>
+        {% endif %}
+
+        {% block post_tile_content %}
+
+        {% endblock %}
+    </div>
+{% endblock %}

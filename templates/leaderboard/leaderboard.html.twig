@@ -1,0 +1,12 @@
+{% extends "_sceleton.html.twig" %}
+
+{% block title %}{{ "index.title"|trans }}{% endblock %}
+{% block description %}{{ "index.description"|trans }}{% endblock %}
+
+{% trans_default_domain "index" %}
+
+{% import "macros/submission.html.twig" as macros %}
+
+{% block sceleton %}
+    {{ macros.render_leaderboard(submissions, challengeType, evaluationType) }}
+{% endblock %}

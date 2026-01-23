@@ -1,0 +1,111 @@
+{% macro render_table(submissions, bestSubmission) %}
+    {% import _self as self %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>{{ "entity.name"|trans({}, "entity_submission") }}</th>
+            <th class="minimal-width"></th>
+            <th></th>
+            <th class="minimal-width text-end">{{ "Score"|trans({}, "entity_submission") }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for submission in submissions %}
+            <tr class="{% if submission == bestSubmission %}table-active{% endif %}">
+                <td>
+                    <b class="w-3em d-inline-block">#{{ submission.iteration }}</b>
+                    {{ submission.description }}
+                </td>
+                <td class="minimal-width">
+                    {% if submission.reportFilename %}
+                        <a href="{{ path("submission_report", {"submission" : submission.id}) }}"
+                           target="_blank">
+                            <i class="fal fa-file-pdf"></i>
+                        </a>
+                    {% endif %}
+                    <a href="{{ path("submission_solution", {"submission" : submission.id}) }}"
+                       target="_blank">
+                        <i class="fal fa-file-archive"></i>
+                    </a>
+                </td>
+                <td class="minimal-width">{{ submission.createdAt|formatDateTime }}</td>
+                <td class="minimal-width text-end">
+                    {% if submission.evaluationStatus.value == 'WAITING' %}
+                        {{ "mine.waiting_score"|trans({}, "submission") }}
+                    {% elseif not submission.isMostRecentEvaluationVersion %}
+                        {{ "mine.outdated_score"|trans({}, "submission") }}
+                        <a href="{{ path("submission_reevaluate", {"submission" : submission.id}) }}">
+                            <i class="fal fa-refresh"></i>
+                        </a>
+                    {% elseif submission.evaluationStatus.value == 'SUCCESS' %}
+                        <a href="{{ path("submission_evaluation_report", {"submission": submission.id, "evaluationId": submission.evaluationId}) }}"
+                           target="_blank">{{ submission.evaluationScore|number_format(1) }}
+                        </a>
+                    {% else %}
+                        <a href="#" class="text-primary toggle-visibility"
+                           data-target="#error-row-{{ submission.id }}">{{ "mine.evaluation_error"|trans({}, "submission") }}</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% if submission.evaluationError %}
+                <tr class="d-none error-row border-top-0 table-danger" id="error-row-{{ submission.id }}">
+                    <td colspan="100">
+                        <b>{{ submission.evaluationError }}</b>
+                        {% if submission.evaluationErrorLog %}
+                            <br/>
+                            {{ submission.evaluationErrorLog|nl2br }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}
+
+{% macro render_leaderboard(submissions, challenge) %}
+    {% import _self as self %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="minimal-width"></th>
+            <th>{{ "trait.name"|trans({}, "trait_team") }}</th>
+            <th class="minimal-width"></th>
+            <th class="minimal-width">{{ "Score"|trans({}, "entity_submission") }}</th>
+        </tr>
+        </thead>
+        <tbody class="bg-white">
+        {% for submission in submissions %}
+            <tr>
+                <td>
+                    {{ loop.index }}
+                </td>
+                <td>
+                    {% if submission.user.preferAnonymity %}
+                        {{ "leaderboard.undisclosed"|trans({}, "index") }}
+                    {% else %}
+                        {{ submission.user.teamName }}
+                        <span class="text-small">
+                            {{ submission.user.affiliation }}
+                        </span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not submission.user.preferAnonymity and submission.reportFilename %}
+                        <a href="{{ path("leaderboard_report", {"submission" : submission.id}) }}"
+                           target="_blank">
+                            <i class="fal fa-file-pdf"></i>
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path("leaderboard_evaluation_report", {"submission": submission.id, evaluationId: submission.evaluationId}) }}"
+                       target="_blank">
+                        {{ submission.evaluationScore|number_format(1) }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}

@@ -1,0 +1,6 @@
+entity:
+  name: 'User'
+
+help:
+  is_public: 'Whether or not we should include the best submission on the leaderboard.'
+

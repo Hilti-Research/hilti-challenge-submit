@@ -1,0 +1,44 @@
+{
+    "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6",
+        "@fortawesome/fontawesome-svg-core": "^6",
+        "@fortawesome/pro-light-svg-icons": "^6",
+        "@popperjs/core": "^2.11.2",
+        "bootstrap": "^5",
+        "foundation-emails": "^2.3.1",
+        "jquery": "^3.5.1"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.16.0",
+        "@babel/core": "^7.17.0",
+        "@symfony/webpack-encore": "^5",
+        "autoprefixer": "^10",
+        "core-js": "^3",
+        "eslint": "^8",
+        "eslint-config-standard": "^17",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-promise": "^6.0.0",
+        "file-loader": "^6.0.0",
+        "postcss": "^8",
+        "postcss-loader": "^8",
+        "sass": "^1.49.7",
+        "sass-loader": "^16",
+        "stylelint": "^14.3.0",
+        "stylelint-config-sass-guidelines": "^9.0.1",
+        "stylelint-config-standard": "^24.0.0",
+        "webpack-dev-server": "^5.1.0",
+        "regenerator-runtime": "^0.13.9",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^5.1.0"
+    },
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress",
+        "lint": "eslint assets/js; stylelint assets/css",
+        "lint-fix": "eslint --fix assets/js; stylelint --fix assets/css"
+    }
+}

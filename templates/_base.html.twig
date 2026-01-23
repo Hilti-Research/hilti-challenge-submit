@@ -1,0 +1,54 @@
+{% extends '_sceleton.html.twig' %}
+
+{% block sceleton %}
+
+    {% set flashes = app.session.flashbag.all() %}
+    {% if flashes|length > 0 %}
+        <div class="flash-wrapper">
+            {% for type, messages in flashes %}
+                {% for message in messages %}
+                    <div class="col-12 alert alert-{{ type }} alert-sm alert-dismissible fade show"
+                         role="alert">
+                        <div class="container text-center">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if show_pyro is defined and show_pyro %}
+        <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+        </div>
+    {% endif %}
+
+    <div class="page-wrapper">
+        <div class="page-content">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+
+        <footer class="container mt-4">
+            <p class="text-tiny text-muted">
+                <a title="Privacy policy" target="_blank"
+                   href="https://www.hilti.group/content/hilti/CP/XX/en/non-transactional/footer-seiten/gb_privacy.html">
+                    Privacy policy
+                </a> |
+                <a title="Impressum" target="_blank"
+                   href="https://www.hilti.group/content/hilti/CP/XX/en/non-transactional/footer-seiten/company-profile1.html">
+                    Impressum
+                </a> |
+                <a title="Data Subject Rights Form" target="_blank"
+                   href="https://www.hilti.group/content/hilti/CP/XX/en/non-transactional/footer-seiten/data-subject-rights.html">
+                    Data Subject Rights Form
+                </a>
+            </p>
+        </footer>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+@use 'sass:map';
+
+html,
+body {
+  background: #fff;
+  font-size: 18px;
+}
+
+@media (max-width: map.get($container-max-widths, 'xl')) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: map.get($container-max-widths, 'md')) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+h1,
+.h1 {
+  color: $brand-red;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: $brand-red;
+  font-size: 1.12rem;
+  margin-top: 2em;
+}
+
+.hero-teaser,
+.teaser {
+  color: $brand-dark-red;
+  font-size: 1.12rem;
+}
+
+h3,
+p,
+a {
+  color: $brand-dark;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $brand-red;
+}
+
+.arrow::after {
+  color: $brand-red;
+  content: '>';
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 200;
+  margin-left: 0.5em;
+  transition: all 0.5s;
+}
+
+.arrow:hover::after {
+  margin-left: 1em;
+}
+
+pre {
+  background-color: #fff;
+  display: inline-block;
+  min-width: 66%;
+  padding: 1em;
+}
+
+code,
+pre code {
+  color: $brand-dark-red;
+}
