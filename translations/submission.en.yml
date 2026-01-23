@@ -26,6 +26,8 @@ new:
   success:
     submission_is_scored: 'Submission successful! Please wait until we have evaluated your solution. You will receive an email with your score.'
   submission_requirements: 'Submission requirements'
+  info:
+    limit: 'You can still submit %count% submissions today for the current challenge.'
 
 _messages:
   error:

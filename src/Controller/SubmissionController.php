@@ -70,7 +70,7 @@ class SubmissionController extends AbstractController
         $submissionsOfLastDay = array_filter($lastSuccessfulSubmissions, function (Submission $submission) use ($oneDayAgo) {
             return $submission->getCreatedAt() > $oneDayAgo;
         });
-        $availableSubmissions = $currentChallengeSubmissionsPerDay - count($submissionsOfLastDay);
+        $availableSubmissions = $user->isAdmin() ? 99 : $currentChallengeSubmissionsPerDay - count($submissionsOfLastDay);
         if ($availableSubmissions === 0) {
             $message = $translator->trans('new.error.no_new_submission_for_active_challenge', [], 'submission');
             $this->addFlash(FlashType::DANGER->value, $message);
