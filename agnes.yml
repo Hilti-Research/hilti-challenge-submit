@@ -4,7 +4,7 @@ agnes:
 config:
   path: .agnes
   repository:
-    url: git@github.com:Hilti-Research/submit-agnes
+    url: git@github.com:Hilti-Research/submit-hilti-operations
     folder: submit.hilti-challenge.com
 
 build:
@@ -12,7 +12,7 @@ build:
 
 github:
   api_token: '%env(GITHUB_API_TOKEN)%'
-  repository: Hilti-Research/submit
+  repository: Hilti-Research/hilti-challenge-submit
 
 data:
   shared_folders:
