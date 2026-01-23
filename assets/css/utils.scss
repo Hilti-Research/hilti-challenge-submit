@@ -43,3 +43,8 @@
 .mw-text {
     max-width: 47em;
 }
+
+.bump-z-index {
+    position: relative;
+    z-index: 1;
+}

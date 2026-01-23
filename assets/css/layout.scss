@@ -56,7 +56,7 @@ body {
 }
 
 .tile {
-    background-color: rgb(125 117 101 / 5%);
+    background-color: var(--brand-lighter);
     box-shadow: $shadow;
     padding: 1em;
 
