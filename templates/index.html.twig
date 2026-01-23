@@ -6,28 +6,23 @@
 {% trans_default_domain "index" %}
 
 {% block content %}
-    <div class="hero">
-        <div class="hero-content row">
-            <div class="col-md-6">
-                <div class="hero-description">
-                    <h1>{{ "index.title"|trans }}</h1>
-                    <p class="hero-teaser">{{ "index.teaser"|trans }}</p>
-                    <p>
-                        {{ "index.help"|trans({'%format_requirements_links%': '<a href="#submission-format-control" class="smooth-scroll">' ~ "new.submission_requirements"|trans({}, "submission")|lower ~ '</a>'})|raw }}
-                    </p>
-                    <p>
-                        <a class="arrow" href="https://hilti-challenge.com"
-                           target="_blank">
-                            {{ "index.learn_more"|trans }}
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <figure class="hero-image">
-                    <img alt="Hilti SLAM Challenge" src="{{ asset('build/images/header.jpg') }}">
-                </figure>
-            </div>
+
+    <div class="core reverse">
+        <div class="hero-image">
+            <img alt="Hilti SLAM Challenge" src="{{ asset('build/images/header.jpg') }}">
+        </div>
+        <div class="content">
+            <h1>{{ "index.title"|trans }}</h1>
+            <p class="subtitle">{{ "index.teaser"|trans }}</p>
+            <p>
+                {{ "index.help"|trans({'%format_requirements_links%': '<a href="#submission-format-control" class="smooth-scroll">' ~ "new.submission_requirements"|trans({}, "submission")|lower ~ '</a>'})|raw }}
+            </p>
+            <p>
+                <a class="arrow" href="https://hilti-challenge.com"
+                   target="_blank">
+                    {{ "index.learn_more"|trans }}
+                </a>
+            </p>
         </div>
     </div>
 
