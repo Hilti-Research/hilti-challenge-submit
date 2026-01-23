@@ -23,12 +23,7 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      env:
-        FONTAWESOME_AUTH_TOKEN: ${{ secrets.FONTAWESOME_AUTH_TOKEN }}
-      run: |
-        npm config set "@fortawesome:registry" https://npm.fontawesome.com/
-        npm config set "//npm.fontawesome.com/:_authToken" $FONTAWESOME_AUTH_TOKEN
-        npm install
+      run: npm install
 
     - name: Build
       run: npm run build
