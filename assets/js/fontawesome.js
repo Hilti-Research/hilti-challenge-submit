@@ -1,26 +1,20 @@
 import { config, dom, library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faCamera,
-  faCircleA,
-  faCompassSlash,
   faEnvelopeOpen,
   faFileArchive,
-  faFilePdf,
-  faRadar,
-  faRefresh
-} from '@fortawesome/pro-light-svg-icons'
+  faFilePdf
+} from '@fortawesome/free-regular-svg-icons'
+import {
+  faArrowsRotate
+} from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 // configure fontawesome
 config.autoAddCss = false
 library.add(
-  faCircleA,
   faFilePdf,
   faFileArchive,
   faEnvelopeOpen,
-  faCompassSlash,
-  faRadar,
-  faCamera,
-  faRefresh
+  faArrowsRotate
 )
 dom.watch()

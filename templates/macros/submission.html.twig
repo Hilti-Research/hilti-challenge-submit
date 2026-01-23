@@ -20,12 +20,12 @@
                     {% if submission.reportFilename %}
                         <a href="{{ path("submission_report", {"submission" : submission.id}) }}"
                            target="_blank">
-                            <i class="fal fa-file-pdf"></i>
+                            <i class="far fa-file-pdf"></i>
                         </a>
                     {% endif %}
                     <a href="{{ path("submission_solution", {"submission" : submission.id}) }}"
                        target="_blank">
-                        <i class="fal fa-file-archive"></i>
+                        <i class="far fa-file-archive"></i>
                     </a>
                 </td>
                 <td class="minimal-width">{{ submission.createdAt|formatDateTime }}</td>
@@ -35,7 +35,7 @@
                     {% elseif not submission.isMostRecentEvaluationVersion %}
                         {{ "mine.outdated_score"|trans({}, "submission") }}
                         <a href="{{ path("submission_reevaluate", {"submission" : submission.id}) }}">
-                            <i class="fal fa-refresh"></i>
+                            <i class="fas fa-arrows-rotate"></i>
                         </a>
                     {% elseif submission.evaluationStatus.value == 'SUCCESS' %}
                         <a href="{{ path("submission_evaluation_report", {"submission": submission.id, "evaluationId": submission.evaluationId}) }}"
@@ -94,7 +94,7 @@
                     {% if not submission.user.preferAnonymity and submission.reportFilename %}
                         <a href="{{ path("leaderboard_report", {"submission" : submission.id}) }}"
                            target="_blank">
-                            <i class="fal fa-file-pdf"></i>
+                            <i class="far fa-file-pdf"></i>
                         </a>
                     {% endif %}
                 </td>
