@@ -1,7 +1,7 @@
 {% trans_default_domain "email" %}
 
 {% block message %}
-{{ "submission_evaluated.message"|trans({"%score%": body.score}) }}
+{{ "submission_evaluated.message"|trans({"%score%": body.score|default(0)|round(2)}) }}
 {% endblock %}
 
 {% block link_text %}
