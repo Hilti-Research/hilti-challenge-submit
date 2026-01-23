@@ -1,6 +1,6 @@
 index:
-  title: 'Automatic Evaluation System'
-  description: 'Hilti SLAM Challenge: Automatic evaluation system'
+  title: 'Evaluation System'
+  description: 'Hilti SLAM Challenge: Evaluation system'
   teaser: 'for the Hilti SLAM Challenges'
   help: 'Upload your SLAM results (see %format_requirements_links%) and receive a detailed accuracy report.'
 
