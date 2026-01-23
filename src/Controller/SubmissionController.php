@@ -9,6 +9,7 @@ use App\Enum\EvaluationStatus;
 use App\Enum\EvaluationType;
 use App\Enum\FlashType;
 use App\Form\Submission\SubmissionType;
+use App\Helper\DoctrineHelper;
 use App\Helper\Sanitizer;
 use App\Service\EvaluationService;
 use App\Service\Interfaces\PathServiceInterface;
@@ -56,7 +57,7 @@ class SubmissionController extends AbstractController
     }
 
     #[Route('/submission/new', name: 'submission_new')]
-    public function new(Request $request, ManagerRegistry $managerRegistry, TranslatorInterface $translator, EvaluationService $evaluationService, PathServiceInterface $pathService): Response
+    public function new(Request $request, ManagerRegistry $managerRegistry, TranslatorInterface $translator, EvaluationService $evaluationService, PathServiceInterface $pathService, int $currentChallengeSubmissionsPerDay): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -64,26 +65,31 @@ class SubmissionController extends AbstractController
             return $this->redirectToRoute('user_setup');
         }
 
-        $lastSubmissions = $managerRegistry->getRepository(Submission::class)->findBy(['user' => $user->getId()], ['createdAt' => 'DESC'], 10);
-        $oneHourAgo = (new \DateTime())->sub(new \DateInterval('PT1H'));
-        $tooManySubmissions = 10 === count($lastSubmissions) && $lastSubmissions[9]->getCreatedAt() > $oneHourAgo;
-        if ($tooManySubmissions) {
-            $message = $translator->trans('new.error.too_many_submissions', [], 'submission');
+        $lastSuccessfulSubmissions = $managerRegistry->getRepository(Submission::class)->findLastNotFailedSubmissions(ChallengeType::getActiveChallenge(), $currentChallengeSubmissionsPerDay);
+        $oneDayAgo = (new \DateTime())->sub(new \DateInterval('PT1H'));
+        $submissionsOfLastDay = array_filter($lastSuccessfulSubmissions, function (Submission $submission) use ($oneDayAgo) {
+            return $submission->getCreatedAt() > $oneDayAgo;
+        });
+        $availableSubmissions = $currentChallengeSubmissionsPerDay - count($submissionsOfLastDay);
+        if ($availableSubmissions === 0) {
+            $message = $translator->trans('new.error.no_new_submission_for_active_challenge', [], 'submission');
             $this->addFlash(FlashType::DANGER->value, $message);
         }
 
-        $lastSubmission = count($lastSubmissions) > 0 ? $lastSubmissions[0] : null;
+        $lastSubmission = $managerRegistry->getRepository(Submission::class)->findOneBy([], ["createdAt" => "DESC"]);
         $firstTimeDescription = $translator->trans('new.first_time_description', [], 'submission');
         $submission = Submission::createFrom($user, $lastSubmission, $firstTimeDescription);
 
-        $form = $this->createForm(SubmissionType::class, $submission, ['disabled' => $tooManySubmissions]);
+        $form = $this->createForm(SubmissionType::class, $submission);
         $form->add('submit', SubmitType::class, ['translation_domain' => 'submission', 'label' => 'new.submit']);
 
         $form->handleRequest($request);
-        if (!$tooManySubmissions && $form->isSubmitted() && $form->isValid() && $this->tryAddSubmission($submission, $translator, $pathService)) {
-            $manager = $managerRegistry->getManager();
-            $manager->persist($submission);
-            $manager->flush();
+        if (
+            $form->isSubmitted() && $form->isValid() &&
+            ($submission->getChallengeType() !== ChallengeType::getActiveChallenge() || $availableSubmissions > 0) &&
+            $this->tryAddSubmission($submission, $translator, $pathService)
+        ) {
+            DoctrineHelper::persistAndFlush($managerRegistry, $submission);
 
             if ($evaluationService->startEvaluation($submission)) {
                 $message = $translator->trans('new.success.submission_is_scored', [], 'submission');
@@ -100,7 +106,7 @@ class SubmissionController extends AbstractController
             $this->addFlash(FlashType::DANGER->value, $error);
         }
 
-        return $this->render('submission/new.html.twig', ['form' => $form, 'submission' => $submission]);
+        return $this->render('submission/new.html.twig', ['form' => $form, 'submission' => $submission, "availableSubmissions" => $availableSubmissions]);
     }
 
     /**

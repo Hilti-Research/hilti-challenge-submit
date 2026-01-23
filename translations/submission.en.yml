@@ -22,7 +22,7 @@ new:
     report_file_ending_invalid: 'The report must be a .pdf file.'
     solution_file_invalid: 'The upload of the solution failed.'
     solution_file_ending_invalid: 'The solution must be a .zip file.'
-    too_many_submissions: 'You need to wait until you can create another submissions.'
+    no_new_submission_for_active_challenge: 'You need to wait until you can create another submission for the active challenge.'
   success:
     submission_is_scored: 'Submission successful! Please wait until we have evaluated your solution. You will receive an email with your score.'
   submission_requirements: 'Submission requirements'
