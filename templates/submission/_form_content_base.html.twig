@@ -3,10 +3,11 @@
 {% form_theme form _self %}
 
 {% block form_content %}
-    {{ form_start(form) }}
 
     <div class="row">
         <div class="col-md-6">
+            {{ form_start(form) }}
+
             <div class="row">
                 <div class="col-md-2">
                     {{ form_row(form.iteration) }}
@@ -34,7 +35,16 @@
     </div>
 
 
-    {{ form_widget(form.submit) }}
+    <div class="d-flex align-items-center gap-3">
+        {{ form_widget(form.submit) }}
+
+        {% if availableSubmissions is defined %}
+            <span class="text-secondary">
+                {{ "new.info.limit"|trans({"%count%": availableSubmissions}, "submission") }}
+            </span>
+        {% endif %}
+
+    </div>
 
     {{ form_end(form) }}
 {% endblock %}
