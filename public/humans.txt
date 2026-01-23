@@ -4,9 +4,9 @@
 	From: Zürich, Switzerland
 
 /* SITE */
-	Last big update: 2022-02
+	Last big update: 2026-01
 	Language: English
 	Doctype: HTML5
-	IDE: PhpStorm, Symfony plugin, Notepad++, FileZilla
+	IDE: PhpStorm, Symfony plugin, FileZilla
 	Technology: Apache, PHP, JavaScript, CSS, HTML
 	Libraries: Symfony, Bootstrap, FontAwesome
