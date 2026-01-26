@@ -42,11 +42,11 @@
 {% block tile_content %}
     <ul class="nav nav-tabs" id="challenge-tabs" role="tablist">
         {{ self.render_nav_item('CHALLENGE_2026', "SLAM", lastSubmission, true) }}
-        {{ self.render_nav_item('CHALLENGE_2026', "LOCATION", lastSubmission) }}
+        {{ self.render_nav_item('CHALLENGE_2026', "LOCALIZATION", lastSubmission) }}
     </ul>
     <div class="tab-content" id="challenge-content">
         {{ self.render_table_content(submissions2026Slam, bestSubmission2026Slam, 'CHALLENGE_2026', "SLAM", lastSubmission, true) }}
-        {{ self.render_table_content(submissions2026Location, bestSubmission2026Location, 'CHALLENGE_2026', "LOCATION", lastSubmission) }}
+        {{ self.render_table_content(submissions2026Localization, bestSubmission2026Localization, 'CHALLENGE_2026', "LOCALIZATION", lastSubmission) }}
     </div>
 
     <p class="text-sm">

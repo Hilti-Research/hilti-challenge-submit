@@ -39,10 +39,10 @@ class SubmissionController extends AbstractController
         $submissions2026Slam = $user->getFilteredSubmissions(ChallengeType::CHALLENGE_2026, EvaluationType::SLAM);
         $bestSubmission2026Slam = User::getBestSubmission($submissions2026Slam);
 
-        $submissions2026Location = $user->getFilteredSubmissions(ChallengeType::CHALLENGE_2026, EvaluationType::LOCATION);
-        $bestSubmission2026Location = User::getBestSubmission($submissions2026Location);
+        $submissions2026Localization = $user->getFilteredSubmissions(ChallengeType::CHALLENGE_2026, EvaluationType::LOCALIZATION);
+        $bestSubmission2026Localization = User::getBestSubmission($submissions2026Localization);
 
-        $allShownSubmissions = [...$submissions2026Slam, ...$submissions2026Location];
+        $allShownSubmissions = [...$submissions2026Slam, ...$submissions2026Localization];
         $lastSubmission = $allShownSubmissions[0] ?? null;
         array_all($allShownSubmissions, function (Submission $submission) use (&$lastSubmission) {
             $lastSubmission = $submission->getIteration() > $lastSubmission?->getIteration() ? $submission : $lastSubmission;
@@ -51,7 +51,7 @@ class SubmissionController extends AbstractController
         return $this->render('submission/mine.html.twig', [
             'user' => $user,
             'submissions2026Slam' => $submissions2026Slam, 'bestSubmission2026Slam' => $bestSubmission2026Slam,
-            'submissions2026Location' => $submissions2026Location, 'bestSubmission2026Location' => $bestSubmission2026Location,
+            'submissions2026Localization' => $submissions2026Localization, 'bestSubmission2026Localization' => $bestSubmission2026Localization,
             'lastSubmission' => $lastSubmission
         ]);
     }

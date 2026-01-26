@@ -129,7 +129,7 @@ readonly class EvaluationService implements EvaluationServiceInterface
 
     private function resolveEvaluationScore(string $extractPath, ChallengeType $challengeType, EvaluationType $evaluationType): ?float
     {
-        if ($challengeType !== ChallengeType::CHALLENGE_2026 || !in_array($evaluationType, [EvaluationType::SLAM, EvaluationType::LOCATION], true)) {
+        if ($challengeType !== ChallengeType::CHALLENGE_2026 || !in_array($evaluationType, [EvaluationType::SLAM, EvaluationType::LOCALIZATION], true)) {
             return null;
         }
 

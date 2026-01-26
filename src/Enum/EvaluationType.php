@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 enum EvaluationType: string implements TranslatableInterface
 {
     case SLAM = 'SLAM';
-    case LOCATION = 'LOCATION';
+    case LOCALIZATION = 'LOCALIZATION';
 
     public function trans(TranslatorInterface $translator, ?string $locale = null): string
     {
