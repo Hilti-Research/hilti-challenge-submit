@@ -30,7 +30,9 @@
                 </td>
                 <td class="minimal-width">{{ submission.createdAt|formatDateTime }}</td>
                 <td class="minimal-width text-end">
-                    {% if submission.evaluationStatus.value == 'WAITING' %}
+                    {% if not submission.evaluationStatus %}
+                        {{ "mine.failed"|trans({}, "submission") }}
+                    {% elseif submission.evaluationStatus.value == 'WAITING' %}
                         {{ "mine.waiting_score"|trans({}, "submission") }}
                     {% elseif not submission.isMostRecentEvaluationVersion %}
                         {{ "mine.outdated_score"|trans({}, "submission") }}

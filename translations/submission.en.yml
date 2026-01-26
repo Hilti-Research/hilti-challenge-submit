@@ -2,6 +2,7 @@ mine:
   title: Submissions
   description: Your submissions
   waiting_score: 'waiting...'
+  failed: 'failed'
   submissions_public: 'Your latest submission with the highest score is included on the leaderboard.'
   submissions_public_change: 'Go private'
   submissions_private: 'Your latest submission with the highest score is included on the leaderboard. Your name is not disclosed.'
