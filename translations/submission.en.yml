@@ -12,6 +12,8 @@ mine:
   outdated_score: 'outdated'
   warning:
     no_report: 'Your best submission does not include a report. If you want to be considered for the ranking, please include a report before the deadline.'
+  info:
+    no_submissions: 'No submissions yet.'
 
 new:
   title: 'Add new submission'

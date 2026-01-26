@@ -1,0 +1,40 @@
+
+/**
+navbar
+ */
+.nav-hilti .nav-link {
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--size-p-secondary);
+    line-height: var(--size-p);
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+    min-width: 8.75rem;
+    padding-top: 1em;
+    height: 2.75rem;
+}
+
+.nav-hilti .nav-link:hover {
+    color: var(--brand-red);
+}
+
+.nav-hilti .nav-link {
+    background-color: var(--brand-lighter);
+}
+
+.nav-hilti .nav-link.active {
+    background-color: white;
+}
+
+.nav-hilti .nav-link.active:after {
+    content: '';
+    display: block;
+    position: relative;
+    top: 1em;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--brand-red);
+}
