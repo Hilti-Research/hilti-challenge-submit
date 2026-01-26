@@ -28,7 +28,6 @@ readonly class EvaluationService implements EvaluationServiceInterface
         $evaluationId = $submission->getId() . '_' . uniqid();
         $returnUrl = $this->router->generate('submission_evaluation_callback', ['secret' => $this->awsCallbackSecret], RouterInterface::ABSOLUTE_URL);
 
-        $user = $submission->getUser();
         if (!$this->awsService->startEvaluation($solutionPath, $returnUrl, $evaluationId, $submission->getChallengeType()->value, $submission->getEvaluationType()->value)) {
             return false;
         }
@@ -143,7 +142,7 @@ readonly class EvaluationService implements EvaluationServiceInterface
         $lastNoneEmptyCellInColumnM = null;
         while (($line = fgetcsv($file)) !== false) {
             if (!empty($line[9])) {
-                $lastNoneEmptyCellInColumnM = $line[8];
+                $lastNoneEmptyCellInColumnM = $line[9];
             }
         }
 
