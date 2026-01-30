@@ -8,4 +8,5 @@ use Symfony\Component\HttpFoundation\Request;
 interface LoginServiceInterface
 {
     public function login(User $user, Request $request): void;
+    public function logout(Request $request): void;
 }

@@ -102,10 +102,6 @@ class SubmissionController extends AbstractController
             return $this->redirectToRoute('submission_mine');
         }
 
-        if (isset($error)) {
-            $this->addFlash(FlashType::DANGER->value, $error);
-        }
-
         return $this->render('submission/new.html.twig', ['form' => $form, 'submission' => $submission, "availableSubmissions" => $availableSubmissions]);
     }
 
