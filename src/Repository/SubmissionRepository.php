@@ -58,7 +58,6 @@ class SubmissionRepository extends ServiceEntityRepository
 
 
     /**
-     * @param ChallengeType $challengeType
      * @param int $maxResults
      * @return array<Submission>
      */

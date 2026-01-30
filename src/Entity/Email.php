@@ -15,7 +15,6 @@ use App\Entity\Traits\IdTrait;
 use App\Enum\EmailType;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\Uid\UuidV4;
 
 #[ORM\Entity]
@@ -99,7 +98,6 @@ class Email
         return $this->readAt;
     }
 
-    #[ArrayShape(['sentBy' => "\App\Entity\User", 'identifier' => 'string', 'emailType' => 'int', 'link' => 'null|string', 'body' => 'null|string'])]
     public function getContext(): array
     {
         return ['sentBy' => $this->sentBy, 'identifier' => $this->identifier, 'emailType' => $this->type, 'link' => $this->link, 'body' => $this->body];

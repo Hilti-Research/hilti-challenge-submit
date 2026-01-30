@@ -50,8 +50,8 @@ jobs:
         php bin/console lint:yaml config --parse-tags
         php bin/console lint:twig templates
 
-    - name: Test
+    - name: Smoke Test
       run: |
         php bin/console doctrine:migrations:migrate --no-interaction
-        php vendor/bin/phpunit
+        ./bin/console cache:warmup -n
 

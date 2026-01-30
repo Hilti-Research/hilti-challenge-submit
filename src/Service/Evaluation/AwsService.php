@@ -9,7 +9,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 readonly class AwsService
 {
-    public function __construct(private string $awsRegion, private string $awsBucketName, private string $awsAccessKeyId, private string $awsSecretAccessKey, private string $awsCallbackSecret, private LoggerInterface $logger, private RouterInterface $router)
+    public function __construct(private string $awsRegion, private string $awsBucketName, private string $awsAccessKeyId, private string $awsSecretAccessKey, private LoggerInterface $logger)
     {
     }
 

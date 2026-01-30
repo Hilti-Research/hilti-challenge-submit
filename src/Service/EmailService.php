@@ -62,6 +62,11 @@ readonly class EmailService implements EmailServiceInterface
         return true;
     }
 
+    /**
+     * @param Submission $submission
+     * @param User[] $admins
+     * @return void
+     */
     private function sendSubmissionEvaluatedToAdmin(Submission $submission, array $admins): void
     {
         $user = $submission->getUser();
@@ -82,7 +87,6 @@ readonly class EmailService implements EmailServiceInterface
         foreach ($admins as $admin) {
             $message->addTo($admin->getEmail());
         }
-        dump($admins);
 
         $this->sendAndStoreEMail($message, $entity);
     }

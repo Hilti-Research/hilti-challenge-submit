@@ -46,8 +46,6 @@ class SecurityController extends AbstractController
         }
 
         // show last auth error
-        // TODO check works with new authentication layer
-        // TODO add isEnabled?
         $error = $authenticationUtils->getLastAuthenticationError();
         if (null !== $error) {
             if ($error instanceof DisabledException) {
@@ -109,7 +107,6 @@ class SecurityController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var User $existingUser */
             $existingUser = $managerRegistry->getRepository(User::class)->findOneBy(['email' => $user->getEmail()]);
             if (null === $existingUser) {
                 $message = $translator->trans('recover.error.email_not_found', [], 'security');

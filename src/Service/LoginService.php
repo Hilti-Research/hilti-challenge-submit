@@ -25,6 +25,6 @@ readonly class LoginService implements LoginServiceInterface
     public function logout(Request $request): void
     {
         $request->getSession()->invalidate();
-        $this->tokenStorage->setToken();
+        $this->tokenStorage->setToken(null);
     }
 }

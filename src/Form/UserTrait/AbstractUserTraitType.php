@@ -11,6 +11,7 @@
 
 namespace App\Form\UserTrait;
 
+use App\Entity\Traits\UserTrait;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
