@@ -44,9 +44,9 @@ class SubmissionController extends AbstractController
 
         $allShownSubmissions = [...$submissions2026Slam, ...$submissions2026Localization];
         $lastSubmission = $allShownSubmissions[0] ?? null;
-        array_all($allShownSubmissions, function (Submission $submission) use (&$lastSubmission) {
+        foreach ($allShownSubmissions as $submission) {
             $lastSubmission = $submission->getIteration() > $lastSubmission?->getIteration() ? $submission : $lastSubmission;
-        });
+        }
 
         return $this->render('submission/mine.html.twig', [
             'user' => $user,
@@ -65,7 +65,7 @@ class SubmissionController extends AbstractController
             return $this->redirectToRoute('user_setup');
         }
 
-        $lastSuccessfulSubmissions = $managerRegistry->getRepository(Submission::class)->findLastNotFailedSubmissions(ChallengeType::getActiveChallenge(), $currentChallengeSubmissionsPerDay);
+        $lastSuccessfulSubmissions = $managerRegistry->getRepository(Submission::class)->findLastNotFailedSubmissions($user, $currentChallengeSubmissionsPerDay);
         $oneDayAgo = (new \DateTime())->sub(new \DateInterval('PT1H'));
         $submissionsOfLastDay = array_filter($lastSuccessfulSubmissions, function (Submission $submission) use ($oneDayAgo) {
             return $submission->getCreatedAt() > $oneDayAgo;
@@ -76,11 +76,11 @@ class SubmissionController extends AbstractController
             $this->addFlash(FlashType::DANGER->value, $message);
         }
 
-        $lastSubmission = $managerRegistry->getRepository(Submission::class)->findOneBy([], ["createdAt" => "DESC"]);
+        $lastSubmission = $managerRegistry->getRepository(Submission::class)->findOneBy(["user" => $user->getId()], ["createdAt" => "DESC"]);
         $firstTimeDescription = $translator->trans('new.first_time_description', [], 'submission');
         $submission = Submission::createFrom($user, $lastSubmission, $firstTimeDescription);
 
-        $form = $this->createForm(SubmissionType::class, $submission);
+        $form = $this->createForm(SubmissionType::class, $submission, ['disabled' => $availableSubmissions === 0]);
         $form->add('submit', SubmitType::class, ['translation_domain' => 'submission', 'label' => 'new.submit']);
 
         $form->handleRequest($request);

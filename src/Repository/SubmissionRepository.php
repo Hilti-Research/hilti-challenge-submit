@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Submission;
+use App\Entity\User;
 use App\Enum\ChallengeType;
 use App\Enum\EvaluationStatus;
 use App\Enum\EvaluationType;
@@ -61,12 +62,14 @@ class SubmissionRepository extends ServiceEntityRepository
      * @param int $maxResults
      * @return array<Submission>
      */
-    public function findLastNotFailedSubmissions(ChallengeType $challengeType, int $maxResults): array
+    public function findLastNotFailedSubmissions(User $user, int $maxResults): array
     {
         return $this->createQueryBuilder('s')
             ->select('s')
             ->andWhere('s.evaluationStatus != :status')
             ->setParameter(':status', EvaluationStatus::ERROR)
+            ->andWhere('s.user = :user')
+            ->setParameter(':user', $user->getId())
             ->addOrderBy('s.createdAt', 'DESC')
             ->setMaxResults($maxResults)
             ->getQuery()
