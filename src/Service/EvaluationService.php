@@ -141,8 +141,8 @@ readonly class EvaluationService implements EvaluationServiceInterface
         $file = fopen($csvPath, 'r');
         $lastNoneEmptyCellInColumnM = null;
         while (($line = fgetcsv($file)) !== false) {
-            if (!empty($line[9])) {
-                $lastNoneEmptyCellInColumnM = $line[9];
+            if (!empty($line[10])) {
+                $lastNoneEmptyCellInColumnM = $line[10];
             }
         }
 

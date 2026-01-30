@@ -18,7 +18,7 @@ class EvaluationController extends AbstractController
     #[Route('/callback', name: 'submission_evaluation_callback')]
     public function evaluationFinished(Request $request, EvaluationServiceInterface $evaluationService, string $awsCallbackSecret, ManagerRegistry $registry): Response
     {
-        // test with https://localhost:8000/evaluation/callback?secret=callback_secret&key=019be987-737a-7e50-b776-b32aed24cb75_69731456df90d&status=success&error_log=&s3_bucket=challenge-reports-b0ceaaeb-fde7-4299-acdc-c9c0cc8b0c1a&s3_key=test_2026-challenge_2026-slam-evaluation.zip
+        /** find URL on clowdwatch, adapt the key */
         $secret = $request->query->get('secret');
         if ($awsCallbackSecret !== $secret) {
             if ($secret === 'invalid') {
