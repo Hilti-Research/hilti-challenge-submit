@@ -45,7 +45,7 @@ security:
         - { path: ^/register, roles: PUBLIC_ACCESS }
         - { path: ^/recover, roles: PUBLIC_ACCESS }
 
-        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_ADMIN }
 
 when@test:
     security:

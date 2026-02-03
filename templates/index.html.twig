@@ -27,24 +27,15 @@
     </div>
 
     <div class="content text-center pt-10 pb-10">
-        <a class="btn btn-primary" href="{{ path("submission_new") }}">
+        <a class="btn btn-primary disabled" href="{{ path("submission_new") }}" disabled="disabled">
             {{ "new.title"|trans({}, "submission") }}
         </a>
 
-        {% if challengeFinished %}
-            <p class="text-muted text-sm mt-4 mb-0">
-                <b>
-                    {{ "index.deadline_passed"|trans({"%deadline%": env_current_challenge_deadline}) }}
-                </b>
-            </p>
-            <p class="text-muted text-sm w-22em">
-                {{ "index.deadline_passed_help"|trans }}
-            </p>
-        {% else %}
-            <p class="text-muted text-sm mt-1">
-                {{ "index.deadline"|trans({"%deadline%": env_current_challenge_deadline}) }}
-            </p>
-        {% endif %}
+        <p class="text-muted text-sm mt-2 mb-0">
+            <b>
+                {{ "index.we_are_right_back"|trans({"%deadline%": env_current_challenge_deadline}) }}
+            </b>
+        </p>
     </div>
 
     <div class="mb-5">
