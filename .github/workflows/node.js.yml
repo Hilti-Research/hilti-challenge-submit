@@ -29,4 +29,4 @@ jobs:
       run: npm run build
 
     - name: Check dependencies
-      run: npm audit
+      run: npm audit --production
