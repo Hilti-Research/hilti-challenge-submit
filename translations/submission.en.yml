@@ -31,6 +31,8 @@ new:
   submission_requirements: 'Submission requirements'
   info:
     limit: 'You can still submit %count% submissions today for the current challenge.'
+    old_challenges: 'You are submitting for the challenge 2026. You can find the evaluation script and the ground truths for the previous challenges on GitHub: '
+    and: "and"
 
 _messages:
   error:
