@@ -1,7 +1,7 @@
 index:
   title: 'Evaluation System'
-  description: 'Hilti SLAM Challenge: Evaluation system'
-  teaser: 'for the Hilti SLAM Challenges'
+  description: 'Hilti x Trimble SLAM Challenge: Evaluation system'
+  teaser: 'for the Hilti x Trimble SLAM Challenge 2026'
   help: 'Upload your SLAM results (see %format_requirements_links%) and receive a detailed accuracy report.'
 
   deadline: 'Latest submission: %deadline%'
@@ -15,6 +15,7 @@ index:
   congratulations: 'Congratulations to the winners!'
   vision_only: 'Vision-only submissions (no LIDAR)'
   deadline_passed_help: 'You can still add new submissions, but these new submissions will not be considered for the ranking.'
+  old_challenges: 'The evaluation script and ground truths of the previous Hilti challenges are on GitHub: '
 
 leaderboard:
   undisclosed: 'Undisclosed'
