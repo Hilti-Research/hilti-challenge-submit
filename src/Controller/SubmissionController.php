@@ -66,7 +66,7 @@ class SubmissionController extends AbstractController
         }
 
         $lastSuccessfulSubmissions = $managerRegistry->getRepository(Submission::class)->findLastNotFailedSubmissions($user, $currentChallengeSubmissionsPerDay);
-        $oneDayAgo = (new \DateTime())->sub(new \DateInterval('PT1H'));
+        $oneDayAgo = (new \DateTime())->sub(new \DateInterval('P1D'));
         $submissionsOfLastDay = array_filter($lastSuccessfulSubmissions, function (Submission $submission) use ($oneDayAgo) {
             return $submission->getCreatedAt() > $oneDayAgo;
         });
