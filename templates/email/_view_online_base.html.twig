@@ -12,12 +12,14 @@
 
             <div class="center-content-primary shadow">
                 {% apply inky_to_html %}
-                    {% if emailType == 1 %}
+                    {% if emailType.value == 'RECOVERY_CONFIRM' %}
                         {% set path = 'email/recover_confirm_content.twig' %}
-                    {% elseif emailType == 2 %}
+                    {% elseif emailType.value == 'SUBMISSION_EVALUATED' %}
                         {% set path = 'email/submission_evaluated_content.twig' %}
-                    {% elseif emailType == 3 %}
-                        {% set path = 'email/submission_evaluated_notify_content.twig' %}
+                    {% elseif emailType.value == 'SUBMISSION_EVALUATED_ADMIN_NOTIFICATION' %}
+                        {% set path = 'email/submission_evaluated_admin_notification_content.twig' %}
+                    {% elseif emailType.value == 'SUBMISSION_EVALUATION_FAILED' %}
+                        {% set path = 'email/submission_evaluation_failed_content.twig' %}
                     {% endif %}
                     <p>{{ block('message', path) }}</p>
                     <spacer size="15"></spacer>

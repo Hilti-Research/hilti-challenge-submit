@@ -12,6 +12,7 @@
 namespace App\Controller;
 
 use App\Entity\Email;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -19,7 +20,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class EmailController extends AbstractController
 {
     #[Route('/email/{identifier}', name: 'email')]
-    public function email(Email $email): Response
+    public function email(#[MapEntity(mapping: ['identifier' => 'identifier'])] Email $email): Response
     {
         return $this->render('email/_view_online_base.html.twig', $email->getContext());
     }
