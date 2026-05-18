@@ -99,6 +99,10 @@ class LeaderboardController extends AbstractController
         $rawLeaderboardVersion = $request->query->get('leaderboardVersion', LeaderboardVersion::ACTIVE_CHALLENGE->value);
         $leaderboardVersion = LeaderboardVersion::tryFrom($rawLeaderboardVersion) ?? LeaderboardVersion::ACTIVE_CHALLENGE;
 
+        if ($request->query->get('authentication') !== $leaderboardAuthentication) {
+            throw new BadRequestException();
+        }
+
         $deadline = null;
         if ($challengeType === ChallengeType::getActiveChallenge()) {
             $deadline = new \DateTime($currentChallengeDeadline);
