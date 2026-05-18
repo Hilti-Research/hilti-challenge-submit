@@ -71,7 +71,7 @@ class LeaderboardController extends AbstractController
         return $this->file($path, "report." . pathinfo($submission->getReportFilename(), PATHINFO_EXTENSION));
     }
 
-    #[Route('/submission/{submission}/solution/{evaluationId}', name: 'leaderboard_solution')]
+    #[Route('/submission/{submission}/evaluation_report/{evaluationId}', name: 'leaderboard_evaluation_report')]
     public function evaluationReport(Submission $submission, Request $request, ManagerRegistry $managerRegistry, string $currentChallengeDeadline, string $leaderboardAuthentication, string $evaluationId, PathServiceInterface $pathService): Response
     {
         if (!$this->isSubmissionOnLeaderboard($submission, $request, $managerRegistry, $currentChallengeDeadline, $leaderboardAuthentication)) {
@@ -83,10 +83,9 @@ class LeaderboardController extends AbstractController
         }
 
         $submissionDirectory = $pathService->getSubmissionDirectory($submission);
-        $path = $submissionDirectory . '/' . $submission->getSolutionFilename();
+        $path = $submissionDirectory . '/' . $submission->getEvaluationFolder() . "/" . $submission->getEvaluationReportFilename();
 
-        $team = $pathService->getUserDirectory($submission->getUser());
-        return $this->file($path, "evaluation." . pathinfo($submission->getSolutionFilename(), PATHINFO_EXTENSION));
+        return $this->file($path, "evaluation." . pathinfo($submission->getEvaluationReportFilename(), PATHINFO_EXTENSION));
     }
 
     private function getLeaderboardContent(Request $request, ManagerRegistry $managerRegistry, string $currentChallengeDeadline, string $leaderboardAuthentication): array

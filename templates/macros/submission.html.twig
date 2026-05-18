@@ -101,7 +101,7 @@
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{{ path("leaderboard_solution", {"submission": submission.id, evaluationId: submission.evaluationId, "challengeType": challengeType, "evaluationType": evaluationType, "leaderboardVersion": leaderboardVersion}) }}"
+                    <a href="{{ path("leaderboard_evaluation_report", {"submission": submission.id, evaluationId: submission.evaluationId, "challengeType": challengeType, "evaluationType": evaluationType, "leaderboardVersion": leaderboardVersion}) }}"
                        target="_blank">
                         {{ submission.evaluationScore|number_format(1) }}
                     </a>
