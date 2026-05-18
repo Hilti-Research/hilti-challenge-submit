@@ -72,7 +72,7 @@ class LeaderboardController extends AbstractController
         return $this->file($path, $team . "_report.pdf");
     }
 
-    #[Route('/submission/{submission}/evaluation_report/{evaluationId}', name: 'leaderboard_evaluation_report')]
+    #[Route('/submission/{submission}/solution/{evaluationId}', name: 'leaderboard_solution')]
     public function evaluationReport(Submission $submission, Request $request, ManagerRegistry $managerRegistry, string $currentChallengeDeadline, string $leaderboardAuthentication, string $evaluationId, PathServiceInterface $pathService): Response
     {
         if (!$this->isSubmissionOnLeaderboard($submission, $request, $managerRegistry, $currentChallengeDeadline, $leaderboardAuthentication)) {
@@ -84,7 +84,7 @@ class LeaderboardController extends AbstractController
         }
 
         $submissionDirectory = $pathService->getSubmissionDirectory($submission);
-        $path = $submissionDirectory . '/' . $submission->getEvaluationFolder() . "/" . $submission->getEvaluationReportFilename();
+        $path = $submissionDirectory . '/' . $submission->getSolutionFilename();
 
         $team = $pathService->getUserDirectory($submission->getUser());
         return $this->file($path, $team . "_evaluation." . pathinfo($submission->getEvaluationReportFilename(), PATHINFO_EXTENSION));
@@ -119,9 +119,9 @@ class LeaderboardController extends AbstractController
         $submissions = $this->getBestSubmissions($users, $challengeType, $evaluationType, $deadline);
 
         return [
-            'challengeType' => $challengeType,
-            'evaluationType' => $evaluationType,
-            'leaderboardVersion' => $leaderboardVersion,
+            'challengeType' => $challengeType->value,
+            'evaluationType' => $evaluationType->value,
+            'leaderboardVersion' => $leaderboardVersion->value,
             'submissions' => $submissions,
         ];
     }

@@ -65,7 +65,7 @@
     </table>
 {% endmacro %}
 
-{% macro render_leaderboard(submissions, challenge) %}
+{% macro render_leaderboard(submissions, challengeType, evaluationType, leaderboardVersion) %}
     {% import _self as self %}
     <table class="table table-hover">
         <thead>
@@ -94,14 +94,14 @@
                 </td>
                 <td>
                     {% if not submission.user.preferAnonymity and submission.reportFilename %}
-                        <a href="{{ path("leaderboard_report", {"submission" : submission.id}) }}"
+                        <a href="{{ path("leaderboard_report", {"submission": submission.id, "challengeType": challengeType, "evaluationType": evaluationType, "leaderboardVersion": leaderboardVersion}) }}"
                            target="_blank">
                             <i class="far fa-file-pdf"></i>
                         </a>
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{{ path("leaderboard_evaluation_report", {"submission": submission.id, evaluationId: submission.evaluationId}) }}"
+                    <a href="{{ path("leaderboard_solution", {"submission": submission.id, evaluationId: submission.evaluationId, "challengeType": challengeType, "evaluationType": evaluationType, "leaderboardVersion": leaderboardVersion}) }}"
                        target="_blank">
                         {{ submission.evaluationScore|number_format(1) }}
                     </a>
