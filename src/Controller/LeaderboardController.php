@@ -124,6 +124,7 @@ class LeaderboardController extends AbstractController
             'challengeType' => $challengeType->value,
             'evaluationType' => $evaluationType->value,
             'leaderboardVersion' => $leaderboardVersion->value,
+            'authentication' => $leaderboardAuthentication,
             'submissions' => $submissions,
         ];
     }

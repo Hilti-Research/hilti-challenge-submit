@@ -8,5 +8,5 @@
 {% import "macros/submission.html.twig" as macros %}
 
 {% block sceleton %}
-    {{ macros.render_leaderboard(submissions, challengeType, evaluationType, leaderboardVersion) }}
+    {{ macros.render_leaderboard(submissions, challengeType, evaluationType, leaderboardVersion, authentication) }}
 {% endblock %}
