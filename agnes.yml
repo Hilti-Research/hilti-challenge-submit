@@ -3,6 +3,7 @@ agnes:
 
 config:
   path: .agnes
+  encryption_key: '%env(ANGES_ENCRYPTION_KEY)%'
   repository:
     url: git@github.com:Hilti-Research/submit-hilti-operations
     folder: submit.hilti-challenge.com
@@ -21,6 +22,7 @@ data:
   files:
     - path: .env.local
       required: true
+      encrypted: true
 
 scripts:
   build:
