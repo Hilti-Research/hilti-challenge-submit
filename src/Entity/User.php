@@ -155,7 +155,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 continue;
             }
 
-            if ($submission->isMostRecentEvaluationVersion()) {
+            if (!$submission->isMostRecentEvaluationVersion()) {
                 continue;
             }
 
