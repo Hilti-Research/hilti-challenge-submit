@@ -32,7 +32,7 @@
         class="tab-pane fade {% if (defaultEntry and not lastSubmission) or lastSubmission.challengeType.value == challengeType and lastSubmission.evaluationType.value == evaluationType %}show active{% endif %}"
         id="{{ challengeType ~ "_" ~ evaluationType }}" role="tabpanel"
         aria-labelledby="{{ challengeType }} {{ evaluationType }}">
-        {% if bestSubmission and not bestSubmission.reportPath %}
+        {% if bestSubmission and not bestSubmission.reportFilename %}
             <p class="alert alert-warning">
                 {{ "mine.warning.no_report"|trans }}
             </p>
