@@ -27,7 +27,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class SubmissionController extends AbstractController
 {
     #[Route('/submission/mine', name: 'submission_mine')]
-    public function index(): Response
+    public function index(string $currentChallengeDeadline): Response
     {
         /** @var User $user */
         $user = $this->getUser();
@@ -42,6 +42,9 @@ class SubmissionController extends AbstractController
         $submissions2026Localization = $user->getFilteredSubmissions(ChallengeType::CHALLENGE_2026, EvaluationType::LOCALIZATION);
         $bestSubmission2026Localization = User::getBestSubmission($submissions2026Localization);
 
+        $deadline = new \DateTime($currentChallengeDeadline);
+        $beforeDeadline = $deadline > (new \DateTime());
+
         $allShownSubmissions = [...$submissions2026Slam, ...$submissions2026Localization];
         $lastSubmission = $allShownSubmissions[0] ?? null;
         foreach ($allShownSubmissions as $submission) {
@@ -52,6 +55,7 @@ class SubmissionController extends AbstractController
             'user' => $user,
             'submissions2026Slam' => $submissions2026Slam, 'bestSubmission2026Slam' => $bestSubmission2026Slam,
             'submissions2026Localization' => $submissions2026Localization, 'bestSubmission2026Localization' => $bestSubmission2026Localization,
+            'beforeDeadline' => $beforeDeadline,
             'lastSubmission' => $lastSubmission
         ]);
     }

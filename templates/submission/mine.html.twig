@@ -26,13 +26,13 @@
     </li>
 {% endmacro %}
 
-{% macro render_table_content(submissions, bestSubmission, challengeType, evaluationType, lastSubmission, defaultEntry = false) %}
+{% macro render_table_content(submissions, bestSubmission, beforeDeadline, challengeType, evaluationType, lastSubmission, defaultEntry = false) %}
     {% import "macros/submission.html.twig" as macros %}
     <div
         class="tab-pane fade {% if (defaultEntry and not lastSubmission) or lastSubmission.challengeType.value == challengeType and lastSubmission.evaluationType.value == evaluationType %}show active{% endif %}"
         id="{{ challengeType ~ "_" ~ evaluationType }}" role="tabpanel"
         aria-labelledby="{{ challengeType }} {{ evaluationType }}">
-        {% if bestSubmission and not bestSubmission.reportFilename %}
+        {% if bestSubmission and not bestSubmission.reportFilename and beforeDeadline %}
             <p class="alert alert-warning">
                 {{ "mine.warning.no_report"|trans }}
             </p>
@@ -55,8 +55,8 @@
         {{ self.render_nav_item('CHALLENGE_2026', "LOCALIZATION", lastSubmission) }}
     </ul>
     <div class="tab-content bg-white pt-4 pb-2 px-2 border-start border-end border-bottom" id="challenge-content">
-        {{ self.render_table_content(submissions2026Slam, bestSubmission2026Slam, 'CHALLENGE_2026', "SLAM", lastSubmission, true) }}
-        {{ self.render_table_content(submissions2026Localization, bestSubmission2026Localization, 'CHALLENGE_2026', "LOCALIZATION", lastSubmission) }}
+        {{ self.render_table_content(submissions2026Slam, bestSubmission2026Slam, beforeDeadline, 'CHALLENGE_2026', "SLAM", lastSubmission, true) }}
+        {{ self.render_table_content(submissions2026Localization, bestSubmission2026Localization, beforeDeadline, 'CHALLENGE_2026', "LOCALIZATION", lastSubmission) }}
     </div>
 
     <p class="text-sm">
