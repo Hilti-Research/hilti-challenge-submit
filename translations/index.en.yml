@@ -14,7 +14,7 @@ index:
   leaderboard: 'Challenge %name%'
   congratulations: 'Congratulations to the winners!'
   vision_only: 'Vision-only submissions (no LIDAR)'
-  deadline_passed_help: 'You can still add new submissions, but these new submissions will not be considered for the ranking.'
+  deadline_passed_help: 'Your submissions will no longer be considered for the ranking, but they will appear on the live leaderboard.'
   old_challenges: 'The evaluation script and ground truths of the previous Hilti challenges are on GitHub: '
 
 leaderboard:
